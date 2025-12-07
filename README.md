@@ -4,7 +4,7 @@ emoji: 🌕
 colorFrom: purple
 colorTo: purple
 sdk: gradio
-sdk_version: 3.0.6
+sdk_version: 6.0.2
 app_file: app.py
 pinned: false
 license: cc
@@ -15,7 +15,7 @@ license: cc
 # 🌕 Demo — Gradio App
 
 Welcome to the **Demo Gradio Application**!  
-This Space is powered by **Gradio 3.0.6** and uses `app.py` as the main entry point.
+This Space is powered by **Gradio 6.0.2** and uses `app.py` as the main entry point.
 
 ---
 

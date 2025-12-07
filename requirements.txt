@@ -1,5 +1,5 @@
-gradio
-transformers
-tensorflow
-torch
-tf-keras
+gradio==6.0.2
+transformers==4.57.3
+tensorflow==2.20.0
+torch==2.9.1
+tf_keras==2.20.1

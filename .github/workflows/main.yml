@@ -5,6 +5,10 @@ on:
     branches: [ main ]
   workflow_dispatch:
 
+env:
+  HF_USER: ashish2491anand
+  HF_SPACE: demo
+
 jobs:
   sync-to-hub:
     runs-on: ubuntu-latest
@@ -17,13 +21,12 @@ jobs:
 
       - name: Add Hugging Face remote
         env:
-          HF: ${{ secrets.HF }}
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
-          git remote add space https://ashish2491anand:$HF@huggingface.co/spaces/ashish2491anand/demo
+          git remote add space https://$HF_USER:$HF_TOKEN@huggingface.co/spaces/$HF_USER/$HF_SPACE
 
       - name: Push to Hugging Face Space
         env:
-          HF: ${{ secrets.HF }}
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
-          git push --force https://ashish2491anand:$HF@huggingface.co/spaces/ashish2491anand/demo main
-
+          git push --force space main

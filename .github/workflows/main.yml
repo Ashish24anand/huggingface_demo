@@ -1,0 +1,29 @@
+name: Sync to Hugging Face Space
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  sync-to-hub:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Add Hugging Face remote
+        env:
+          HF: ${{ secrets.HF }}
+        run: |
+          git remote add space https://ashish2491anand:$HF@huggingface.co/spaces/ashish2491anand/demo
+
+      - name: Push to Hugging Face Space
+        env:
+          HF: ${{ secrets.HF }}
+        run: |
+          git push --force https://ashish2491anand:$HF@huggingface.co/spaces/ashish2491anand/demo main
+
